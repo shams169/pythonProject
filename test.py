@@ -1,1 +1,4 @@
-print("Hello App")
+def main():
+    print("This is the main function")
+
+if __
