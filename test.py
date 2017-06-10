@@ -1,4 +1,5 @@
 def main():
     print("This is the main function")
 
-if __
+if __name__ = '__main__':
+    main()
