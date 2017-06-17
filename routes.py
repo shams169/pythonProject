@@ -1,30 +1,35 @@
-# server /
-
 from flask import Flask
-#from ContactsDir.app import app
 from app import app
+from flask import render_template
+from flask import request
+from flask import url_for
+
 
 @app.route('/')
-def myname():
-    str = """
-    <html>
-    <title>Hello World </title>
-    <body>
-        <h1>This is the first page in Flask</h1>
-    </body>
-
-    </html>2
+def home():
+    create_link = "<a href= '"+url_for('create')+"'> <h2>Create a Question </h2></a>"
+    return """
+            <html>
+            <head>
+                <title> HomePage </title>
+                <body> """+ create_link+ """
+                </body>
+            </head>
+            </html>
     """
-    return str
 
-#server /create
+
 @app.route('/create')
-def create():
-    return "Hi from the create page"
+def create(method=['GET','POST']):
+    if request.method == 'GET':
+        return render_template('CreateQuestion.html')
+    elif request.method == 'POST'
+        title     = request.form['title']
+        question  = request.form['question']
+        answer    = request.form['answer']
 
-
-#server /question/<title>
-@app.route('/question/<title>')
-def question(title):
-    return '<h2>' + title + '</h2>' 
-
+        
+    else:
+        return """
+                <h3> Invalid URL </h3>
+                """
